@@ -1,0 +1,1 @@
+"use client";import Sidebar from "./sidebar";export default function AppShell({children}:{children:React.ReactNode}){return <div className="flex min-h-screen"><Sidebar/><main className="flex-1 min-w-0"><div className="md:hidden bg-[#171717] text-white px-5 py-4 font-black">TASVEER CREATIVES</div><div className="max-w-[1500px] mx-auto p-5 md:p-8">{children}</div></main></div>}

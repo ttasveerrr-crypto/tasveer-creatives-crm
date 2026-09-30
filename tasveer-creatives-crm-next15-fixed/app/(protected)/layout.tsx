@@ -1,0 +1,1 @@
+import AppShell from "@/components/app-shell";import Guard from "@/components/guard";export default function L({children}:{children:React.ReactNode}){return <Guard><AppShell>{children}</AppShell></Guard>}

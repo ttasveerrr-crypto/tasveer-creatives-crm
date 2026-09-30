@@ -1,0 +1,3 @@
+"use client";
+import {createContext,useContext,useEffect,useState} from "react";import {supabaseBrowser} from "@/lib/supabase-browser";
+const C=createContext<any>({session:null,user:null}); export function AuthProvider({children}:{children:React.ReactNode}){const [session,setSession]=useState<any>(null);useEffect(()=>{const s=supabaseBrowser();s.auth.getSession().then(({data})=>setSession(data.session));const {data}=s.auth.onAuthStateChange((_e,ss)=>setSession(ss));return()=>data.subscription.unsubscribe()},[]);return <C.Provider value={{session,user:session?.user||null}}>{children}</C.Provider>}export const useAuth=()=>useContext(C);

@@ -1,0 +1,3 @@
+export const money=(n:number)=>new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:2}).format(n||0);
+export const dateFmt=(d:string|Date)=>new Intl.DateTimeFormat("en-IN",{day:"2-digit",month:"short",year:"numeric"}).format(new Date(d));
+export function calc(items:any[]){let subtotal=0,discount=0,tax=0; for(const x of items){const base=(Number(x.quantity)||0)*(Number(x.rate)||0); subtotal+=base; discount+=Number(x.discount)||0; tax+=(Math.max(0,base-(Number(x.discount)||0))*(Number(x.tax_rate)||0))/100;} return {subtotal,discount,tax,total:Math.max(0,subtotal-discount+tax)};}
